@@ -1,21 +1,25 @@
+
+import java.util.Scanner;
+
 public class SurveiKepuasan_23 {
+
     public static void main(String[] args) {
-        // Deklarasi data survei dengan nilai awal
-        int[][] survei = {
-            {5, 4, 3, 4, 5, 2},
-            {3, 2, 4, 5, 4, 3},
-            {4, 5, 5, 3, 4, 4},
-            {3, 3, 2, 4, 4, 5},
-            {4, 4, 3, 3, 5, 2},
-            {5, 4, 4, 4, 3, 4},
-            {3, 5, 3, 5, 2, 3},
-            {4, 4, 5, 4, 4, 4},
-            {5, 3, 4, 4, 5, 3},
-            {4, 5, 4, 3, 4, 5}
-        };
+        Scanner scanner = new Scanner(System.in);
+
+        int[][] survei = new int[10][6];  // Array 2 dimensi untuk menyimpan hasil survei (10 responden, 6 pertanyaan)
+
+        // Input Hasil Survei
+        System.out.println("Masukkan hasil survei (nilai 1-5 untuk setiap pertanyaan):");
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Responden " + (i + 1) + ":");
+            for (int j = 0; j < 6; j++) {
+                System.out.print("Pertanyaan " + (j + 1) + ": ");
+                survei[i][j] = scanner.nextInt();
+            }
+        }
 
         // Hitung Rata-Rata Per Responden
-        System.out.println("Rata-rata untuk setiap responden:");
+        System.out.println("\nRata-rata untuk setiap responden:");
         for (int i = 0; i < 10; i++) {
             double total = 0;
             for (int j = 0; j < 6; j++) {
@@ -45,5 +49,7 @@ public class SurveiKepuasan_23 {
         }
         double rataRataKeseluruhan = totalKeseluruhan / 60;
         System.out.printf("\nRata-rata keseluruhan: %.2f%n", rataRataKeseluruhan);
+
+        scanner.close();
     }
 }
